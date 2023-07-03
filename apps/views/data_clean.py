@@ -4,6 +4,8 @@
 # @File    : data_clean.py
 import pandas as pd
 from tools import get_query
+from pyecharts.charts import Funnel
+from pyecharts import options as opts
 
 
 # 1. 流量分析
@@ -20,6 +22,20 @@ def month_pv_data(read_path, time_start, time_end, save_path):
     pv_flow_data["day"] = pv_flow_data["action_time"].dt.day
     pv_flow_data["week"] = pv_flow_data["action_time"].dt.day_name()
     pv_flow_data["hour"] = pv_flow_data["action_time"].dt.hour
+    # 转化率分析
+    pv_type_data = pv_flow_data.groupby("type").agg(num=("user_id", "count")).reset_index()
+    print(pv_type_data)
+    x_tpye_data = ["浏览", "下单", "关注", "评论"]
+    y_type_data = pv_type_data["num"].tolist()
+    fun = (
+        Funnel()
+        .add("类别", [list(z) for z in zip(x_tpye_data, y_type_data)])
+        .set_global_opts(
+            title_opts=opts.TitleOpts("转化率漏斗图")
+        )
+        .render("../templates/html/funnle.html")
+    )
+
     pv_day_data = pv_flow_data.groupby("day").agg(num=("user_id", "count")).reset_index()
     pv_week_data = pv_flow_data.groupby("week").agg(num=("user_id", "count")).reset_index()
     pv_hour_data = pv_flow_data.groupby("hour").agg(num=("user_id", "count")).reset_index()
@@ -33,13 +49,13 @@ def month_pv_data(read_path, time_start, time_end, save_path):
     uv_week_data = uv_flow_data.groupby("week").agg(num=("user_id", "count")).reset_index()
     uv_hour_data = uv_flow_data.groupby("hour").agg(num=("user_id", "count")).reset_index()
 
-    with pd.ExcelWriter(save_path) as writer:
-        pv_day_data.to_excel(writer, "pv_day_data", index=False)
-        pv_week_data.to_excel(writer, "pv_week_data", index=False)
-        pv_hour_data.to_excel(writer, "pv_hour_data", index=False)
-        uv_day_data.to_excel(writer, "uv_day_data", index=False)
-        uv_week_data.to_excel(writer, "uv_week_data", index=False)
-        uv_hour_data.to_excel(writer, "uv_hour_data", index=False)
+    # with pd.ExcelWriter(save_path) as writer:
+    #     pv_day_data.to_excel(writer, "pv_day_data", index=False)
+    #     pv_week_data.to_excel(writer, "pv_week_data", index=False)
+    #     pv_hour_data.to_excel(writer, "pv_hour_data", index=False)
+    #     uv_day_data.to_excel(writer, "uv_day_data", index=False)
+    #     uv_week_data.to_excel(writer, "uv_week_data", index=False)
+    #     uv_hour_data.to_excel(writer, "uv_hour_data", index=False)
 
 
 # 1.1.2

@@ -8,7 +8,8 @@ from pyecharts import options as opts
 from bs4 import BeautifulSoup
 
 
-def pv_data(read_path, sava_path):
+# 月流量分析
+def flow_data(read_path, sava_path):
     # PV日流量折线图
     pv_day_data = pd.read_excel(read_path, sheet_name="pv_day_data")
     pv_day_x = [str(i) for i in pv_day_data["day"]]
@@ -17,7 +18,10 @@ def pv_data(read_path, sava_path):
         Line()
         .add_xaxis(pv_day_x)
         .add_yaxis("人数", pv_day_y, label_opts=opts.LabelOpts(is_show=False))
-        .set_global_opts(title_opts=opts.TitleOpts("PV日流量折线图"))
+        .set_global_opts(
+            title_opts=opts.TitleOpts("PV日流量折线图"),
+            tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
+        )
     )
     # PV周流量柱状图
     pv_week_data = pd.read_excel(read_path, sheet_name="pv_week_data")
@@ -47,7 +51,10 @@ def pv_data(read_path, sava_path):
         Line()
         .add_xaxis(uv_day_x)
         .add_yaxis("人数", uv_day_y, label_opts=opts.LabelOpts(is_show=False))
-        .set_global_opts(title_opts=opts.TitleOpts("UV日流量折线图"))
+        .set_global_opts(
+            title_opts=opts.TitleOpts("UV日流量折线图"),
+            tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
+        )
     )
     # UV周流量柱状图
     uv_week_data = pd.read_excel(read_path, sheet_name="uv_week_data")
@@ -96,7 +103,5 @@ def pv_data(read_path, sava_path):
         html.write(html_new)
 
 
-
 if __name__ == '__main__':
-    pv_data("../static/3月数据/month_flow_data.xlsx", "../templates/html/month_flow_data.html")
     print("程序结束！")
