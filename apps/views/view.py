@@ -17,4 +17,7 @@ def index():
     flow_data("apps/static/3月数据/month_flow_data.xlsx", "apps/templates/html/month_flow_data.html")
     return render_template("html/month_flow_data.html")
 
-
+@view_bule.route("/")
+def index():
+    flow_data("apps/static/3月数据/month_flow_data.xlsx", "apps/templates/html/month_flow_data.html")
+    return render_template("html/month_flow_data.html")

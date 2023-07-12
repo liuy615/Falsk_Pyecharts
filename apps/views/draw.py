@@ -3,7 +3,7 @@
 # @Author  : liuy
 # @File    : draw.py
 import pandas as pd
-from pyecharts.charts import Line, Bar, Page, Tab
+from pyecharts.charts import Line, Bar, Page, Funnel
 from pyecharts import options as opts
 from bs4 import BeautifulSoup
 
@@ -43,6 +43,17 @@ def flow_data(read_path, sava_path):
         .add_yaxis("人数", pv_hour_y, label_opts=opts.LabelOpts(is_show=False))
         .set_global_opts(title_opts=opts.TitleOpts("PV时流量柱状图"))
     )
+    # PV漏斗图
+    pv_type_data = pd.read_excel(read_path, sheet_name="pv_type_data")
+    pv_tpye_x = ["浏览", "下单", "关注", "评论"]
+    pv_tpye_y = pv_type_data["num"].tolist()
+    pv_type_fun = (
+        Funnel()
+        .add("类别", [list(z) for z in zip(pv_tpye_x, pv_tpye_y)])
+        .set_global_opts(
+            title_opts=opts.TitleOpts("PV转化率漏斗图")
+        )
+    )
     # UV日流量折线图
     uv_day_data = pd.read_excel(read_path, sheet_name="uv_day_data")
     uv_day_x = [str(i) for i in uv_day_data["day"]]
@@ -76,17 +87,30 @@ def flow_data(read_path, sava_path):
         .add_yaxis("人数", uv_hour_y, label_opts=opts.LabelOpts(is_show=False))
         .set_global_opts(title_opts=opts.TitleOpts("UV时流量柱状图"))
     )
-
+    # UV漏斗图
+    uv_type_data = pd.read_excel(read_path, sheet_name="uv_type_data")
+    uv_tpye_x = ["浏览", "下单", "关注", "评论"]
+    uv_tpye_y = uv_type_data["num"].tolist()
+    uv_type_fun = (
+        Funnel()
+        .add("类别", [list(z) for z in zip(uv_tpye_x, uv_tpye_y)])
+        .set_global_opts(
+            title_opts=opts.TitleOpts("UV转化率漏斗图")
+        )
+    )
     month_page = (
         Page()
         .add(pv_day_line)
         .add(pv_week_bar)
         .add(pv_hour_bar)
+        .add(pv_type_fun)
         .add(uv_day_line)
         .add(uv_week_bar)
         .add(uv_hour_bar)
-        .render(sava_path)
+        .add(uv_type_fun)
+
     )
+    month_page.render(sava_path)
 
     with open(sava_path, "r+", encoding='utf-8') as html:
         html_bf = BeautifulSoup(html, 'lxml')
@@ -94,9 +118,11 @@ def flow_data(read_path, sava_path):
         divs[0]["style"] = "width:50%;height:50%;position:absolute;top:0;left:0%;"
         divs[1]["style"] = "width:50%;height:50%;position:absolute;top:50%;left:0%;"
         divs[2]["style"] = "width:50%;height:50%;position:absolute;top:100%;left:0%;"
-        divs[3]["style"] = "width:50%;height:50%;position:absolute;top:0;left:50%;"
-        divs[4]["style"] = "width:50%;height:50%;position:absolute;top:50%;left:50%;"
-        divs[5]["style"] = "width:50%;height:50%;position:absolute;top:100%;left:50%;"
+        divs[3]["style"] = "width:50%;height:50%;position:absolute;top:150%;left:0%;"
+        divs[4]["style"] = "width:50%;height:50%;position:absolute;top:0;left:50%;"
+        divs[5]["style"] = "width:50%;height:50%;position:absolute;top:50%;left:50%;"
+        divs[6]["style"] = "width:50%;height:50%;position:absolute;top:100%;left:50%;"
+        divs[7]["style"] = "width:50%;height:50%;position:absolute;top:150%;left:50%;"
         html_new = str(html_bf)
         html.seek(0, 0)
         html.truncate()
