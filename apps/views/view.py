@@ -4,7 +4,7 @@
 # @File    : view.py
 import pandas as pd
 from flask import render_template, Blueprint
-from apps.views.draw import flow_data
+from apps.views.draw import MonthFlow
 
 
 # 1. 创建一个蓝图模板
@@ -12,12 +12,18 @@ view_bule = Blueprint("view", __name__)
 
 
 # 2. 定义视图函数，配置蓝图路由
-@view_bule.route("/")
+@view_bule.route("/month_pv")
 def index():
-    flow_data("apps/static/3月数据/month_flow_data.xlsx", "apps/templates/html/month_flow_data.html")
-    return render_template("html/month_flow_data.html")
+    month_flow = MonthFlow()
+    month_flow.pv_data("apps/static/2月数据/month_flow_data.xlsx", "apps/templates/2月可视化/2018_2_pv.html")
+    return render_template("2月可视化/month_pv.html")
 
-@view_bule.route("/")
+
+@view_bule.route("/month_uv")
 def index():
-    flow_data("apps/static/3月数据/month_flow_data.xlsx", "apps/templates/html/month_flow_data.html")
-    return render_template("html/month_flow_data.html")
+    month_flow = MonthFlow()
+    month_flow.uv_data("apps/static/2月数据/month_flow_data.xlsx", "apps/templates/2月可视化/2018_2_uv.html")
+    return render_template("2月可视化/month_uv.html")
+
+
+

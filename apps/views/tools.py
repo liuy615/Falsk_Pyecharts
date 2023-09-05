@@ -3,6 +3,7 @@
 # @Author  : liuy
 # @File    : tools.py
 import pymysql
+import pandas as pd
 
 
 # 连接数据库
@@ -33,6 +34,12 @@ def get_query(sql):
     finally:
         cursor.close()
         conn.close()
+
+
+def get_rate_increase(last_data, data):
+    rate_data = pd.concat([last_data, data], axis=1, ignore_index=True)
+    rate_data["rate"] = round((rate_data[3] - rate_data[1]) / rate_data[1]*100, 2)
+    return rate_data["rate"]
 
 
 if __name__ == '__main__':
