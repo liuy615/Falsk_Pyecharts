@@ -3,7 +3,7 @@
 # @Author  : liuy
 # @File    : data_clean.py
 import pandas as pd
-
+import numpy as np
 
 # 1. 流量分析
 class MonthFlowData:
@@ -71,6 +71,7 @@ class MonthUserData:
         print(user_portrait_data)
         # 2.4 用户
         user_portrait_data.to_csv(save_path)
+        print(user_portrait_data)
 
 
 def main():
