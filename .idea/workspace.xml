@@ -2,44 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df746ae9-72b6-4941-a2b7-c0207a8a90b0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/font/DS-DIGI.TTF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/font/DS-DIGIB.TTF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/font/DS-DIGII.TTF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/font/DS-DIGIT.TTF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/bg3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/border_bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/img1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/img2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/img_RFM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/title_border_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/title_left_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/images/title_right_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/area_echarts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/china.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/echarts.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/echarts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/echarts.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/jquery-1.11.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/jquery.numscroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/js.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/static/js/map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/static/3月数据/month_pv_data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/static/3月数据/month_pv_data.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/static/3月数据/month_user_data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/static/3月数据/month_uv_data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/static/3月数据/month_uv_data.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/static/3月数据/user_portrait_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/apps/static/3月数据/user_portrait_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_pv.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_pv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_uv.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_uv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/views/data_clean.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views/data_clean.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/views/draw.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views/draw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/views/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views/view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +225,7 @@
       <workItem from="1697612464371" duration="10889000" />
       <workItem from="1698828258467" duration="2812000" />
       <workItem from="1698995320575" duration="74000" />
-      <workItem from="1703224317220" duration="666000" />
+      <workItem from="1703224317220" duration="2326000" />
     </task>
     <servers />
   </component>
