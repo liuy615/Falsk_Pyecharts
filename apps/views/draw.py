@@ -6,7 +6,7 @@ import pandas as pd
 from pyecharts.charts import Line, Bar, Page, Funnel
 from pyecharts import options as opts
 from bs4 import BeautifulSoup
-from tools import get_rate_increase
+from apps.views.tools import get_rate_increase
 
 
 # 月流量分析
@@ -243,16 +243,23 @@ class MonthFlow:
             html.write(html_new)
 
 
-def user_portrait_data(read_path, sava_path):
-    data = pd.read_excel(read_path, sheet_name="user_portrait_data", index_col=None)
-    print(data)
+class MonthUser:
+    """
+    数据来源是用户的特征信息，
+    """
+    def user_data(self, read_path):
+        data = pd.read_csv(read_path, index_col=0)
+
+        print(data)
 
 
 def main():
     # 3月流量数据绘图
-    month_flow = MonthFlow()
-    month_flow.pv_data("../static/2月数据/month_pv_data.xlsx", "../static/3月数据/month_pv_data.xlsx", "../templates/3月可视化/2018_3_pv.html")
-    month_flow.uv_data("../static/2月数据/month_uv_data.xlsx", "../static/3月数据/month_uv_data.xlsx", "../templates/3月可视化/2018_3_uv.html")
+    # month_flow = MonthFlow()
+    # month_flow.pv_data("../static/2月数据/month_pv_data.xlsx", "../static/3月数据/month_pv_data.xlsx", "../templates/3月可视化/2018_3_pv.html")
+    # month_flow.uv_data("../static/2月数据/month_uv_data.xlsx", "../static/3月数据/month_uv_data.xlsx", "../templates/3月可视化/2018_3_uv.html")
+    month_user = MonthUser()
+    month_user.user_data("../static/3月数据/user_portrait_data.csv")
 
 
 if __name__ == '__main__':

@@ -3,7 +3,8 @@
 # @Author  : liuy
 # @File    : data_clean.py
 import pandas as pd
-import numpy as np
+pd.set_option('expand_frame_repr', False)
+pd.set_option('display.max_columns', 100)
 
 # 1. 流量分析
 class MonthFlowData:
@@ -46,32 +47,43 @@ class MonthFlowData:
 
 
 class MonthUserData:
+    def __init__(self, read_path):
+        self.data = pd.read_pickle(read_path)
+
     # 2. 用户相关分析
-    def month_user_data(self, read_path, time_start, time_end, save_path):
-        data = pd.read_pickle(read_path)
-        data = data[(data["action_time"] >= time_start) & (data["action_time"] < time_end)]
+    def user_portrait_data(self, time_start, time_end, save_path):
+        data = self.data[(self.data["action_time"] >= time_start) & (self.data["action_time"] < time_end)].copy()
         data["day"] = data["action_time"].dt.day
         data["week"] = data["action_time"].dt.day_name()
         data["hour"] = data["action_time"].dt.hour
         user_data = data.groupby("user_id")
         # 2.1 用户购买量与消费金额分析
-        user_buy_money = user_data.agg(F=("sku_id", "count"), M=("money", "sum"), 最近购买时间=("action_time", "max")).sort_values("M", ascending=False).reset_index()
+        user_buy_money = user_data.agg(F=("sku_id", "count"), M=("money", "sum"), last_purchase_time=("action_time", "max")).sort_values("M", ascending=False).reset_index()
         day_max = data["action_time"].max()
-        user_buy_money["R"] = (day_max - user_buy_money["最近购买时间"]).dt.days
+        user_buy_money["R"] = (day_max - user_buy_money["last_purchase_time"]).dt.days
         # 2.2 用户累积消费金额占比分析
-        user_buy_money["累积金额"] = user_buy_money["M"].cumsum()
+        user_buy_money["cum_money"] = user_buy_money["M"].cumsum()
 
         # 2.3 用户消费时间分析
         user_buy_time1 = user_data["day"].agg(lambda x: x.mode().values[0])
         user_buy_time2 = user_data["week"].agg(lambda x: x.mode().values[0])
         user_buy_time3 = user_data["hour"].agg(lambda x: x.mode().values[0])
-
         user_buy_time = pd.concat([user_buy_time1, user_buy_time2, user_buy_time3], axis=1)
-        user_portrait_data = pd.merge(user_buy_money, user_buy_time, how="left", on="user_id")
-        print(user_portrait_data)
-        # 2.4 用户
-        user_portrait_data.to_csv(save_path)
-        print(user_portrait_data)
+
+        # 2.6 用户特征数据合并保存
+        user_face_data = pd.merge(user_buy_money, user_buy_time, how="left", on="user_id")
+        user_base_info = pd.read_csv("../static/data/data_user.csv", index_col=0)
+        user_base_info["age"] = user_base_info["age"].astype(int)
+        user_base_info["sex"] = user_base_info["sex"].astype(int)
+        user_base_info["user_lv_cd"] = user_base_info["user_lv_cd"].astype(int)
+        user_base_info["city_level"] = user_base_info["city_level"].astype(int)
+        user_base_info["province"] = user_base_info["province"].astype(int)
+        user_base_info["city"] = user_base_info["city"].astype(int)
+        user_base_info["county"] = user_base_info["county"].astype(int)
+        user_face_data = pd.merge(user_face_data, user_base_info, how="left", on="user_id")
+
+        print(user_face_data)
+        user_face_data.to_csv(save_path, encoding="utf-8")
 
 
 def main():
@@ -80,9 +92,11 @@ def main():
     # month_flow_data.pv_data("2018-02-01", "2018-03-01", "../static/2月数据/month_pv_data.xlsx")
     # month_flow_data.uv_data("2018-02-01", "2018-03-01", "../static/2月数据/month_uv_data.xlsx")
     # 3月数据准备
-    month_flow_data = MonthFlowData("../static/data/data_action.pkl")
-    month_flow_data.pv_data("2018-03-01", "2018-04-01", "../static/3月数据/month_pv_data.xlsx")
-    month_flow_data.uv_data("2018-03-01", "2018-04-01", "../static/3月数据/month_uv_data.xlsx")
+    # month_flow_data = MonthFlowData("../static/data/data_action.pkl")
+    # month_flow_data.pv_data("2018-03-01", "2018-04-01", "../static/3月数据/month_pv_data.xlsx")
+    # month_flow_data.uv_data("2018-03-01", "2018-04-01", "../static/3月数据/month_uv_data.xlsx")
+    month_user_data = MonthUserData("../static/data/data_consumption.pkl")
+    month_user_data.user_portrait_data("2018-03-01", "2018-04-01", "../static/3月数据/user_portrait_data.csv")
 
 
 if __name__ == '__main__':
