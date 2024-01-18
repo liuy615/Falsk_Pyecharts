@@ -10,8 +10,6 @@ $(function () {
     function echarts_2() {
             // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart2'));
-        var data = [683, 234, 234, 523, 345, 320, 280, 271, 254, 229, 210, 190, 182]
-        var titlename = ['北京', '上海', '广州', '郑州', '武汉', '南京', '杭州', '东莞', '深圳', '虎门', '青岛', '石家庄', '安阳'];
         option = {
             grid: {
                 left: '0',
@@ -25,7 +23,7 @@ $(function () {
             },
             yAxis: [{
                 show: true,
-                data: titlename,
+                data: [],
                 inverse: true,
                 axisLine: { show: false},
                 splitLine:{ show: false},
@@ -36,20 +34,12 @@ $(function () {
                     },
                 },
 
-            }, {
-                show: false,
-                inverse: true,
-                data: data,
-                axisLabel: {textStyle: {color: '#fff'}},
-                axisLine: { show: false},
-                splitLine:{ show: false},
-                axisTick: { show: false},
             }],
             series: [{
                 name: '条',
                 type: 'bar',
                 yAxisIndex: 0,
-                data: data,
+                data: [],
                 barWidth: 15,
                 itemStyle: {
                     normal: {
@@ -67,8 +57,8 @@ $(function () {
                 },
             }]
         };
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+
+        // 让图表跟随屏幕自适应大小
         window.addEventListener("resize",function(){
             myChart.resize();
         });

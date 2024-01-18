@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="df746ae9-72b6-4941-a2b7-c0207a8a90b0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/js/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/static/js/js.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_pv.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_pv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_uv.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_uv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/views/data_clean.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views/data_clean.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/views/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views/view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +21,7 @@
         <option value="Flask Main" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -34,7 +40,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2RgISaIiylBZUEDxSbOpOrnAR6h" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -225,7 +233,10 @@
       <workItem from="1697612464371" duration="10889000" />
       <workItem from="1698828258467" duration="2812000" />
       <workItem from="1698995320575" duration="74000" />
-      <workItem from="1703224317220" duration="2326000" />
+      <workItem from="1703224317220" duration="15127000" />
+      <workItem from="1704273515896" duration="54000" />
+      <workItem from="1705290849195" duration="840000" />
+      <workItem from="1705568571620" duration="898000" />
     </task>
     <servers />
   </component>
@@ -235,7 +246,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Flask_pyecharts$data_clean.coverage" NAME="data_clean Coverage Results" MODIFIED="1703225756620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
     <SUITE FILE_PATH="coverage/Flask_pyecharts$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1687674046528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Flask_pyecharts$manage.coverage" NAME="manage Coverage Results" MODIFIED="1703225777652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Flask_pyecharts$manage.coverage" NAME="manage Coverage Results" MODIFIED="1705569494385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Flask_pyecharts$draw.coverage" NAME="draw Coverage Results" MODIFIED="1697614737668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
     <SUITE FILE_PATH="coverage/Flask_pyecharts$tools.coverage" NAME="tools Coverage Results" MODIFIED="1687921620951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
     <SUITE FILE_PATH="coverage/Flask_pyecharts$view.coverage" NAME="view Coverage Results" MODIFIED="1687680759508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />

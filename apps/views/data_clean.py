@@ -6,6 +6,7 @@ import pandas as pd
 pd.set_option('expand_frame_repr', False)
 pd.set_option('display.max_columns', 100)
 
+
 # 1. 流量分析
 class MonthFlowData:
     def __init__(self, read_path):
