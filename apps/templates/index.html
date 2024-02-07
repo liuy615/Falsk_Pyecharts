@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="head clearfix">
-	<h1 class="pulll_left">公司数据大屏展示</h1>
+	<h1 class="pulll_left">公司会员数据大屏展示</h1>
 		<div class="menu menu2 pulll_left">
             <ul>
                 <li><a href="/month_pv">本月PV变化情况</a></li>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="mainbox">
         <ul class="clearfix nav1">
-            <li style="width: 25%">
+            <li style="width: 30%">
                 <div class="box">
                     <div class="tit">总体数据</div>
                     <div class="boxnav" style="height: 330px;">
@@ -62,38 +62,40 @@
                     </div>
                 </div>
                 <div class="box">
-                    <div class="tit">各区域销售数据</div>
-                    <div class="boxnav" style="">
-                        <div class="boxnav" style="height: 406px" id="echart2"></div>
+                    <div class="tit">会员年龄分布</div>
+                    <div class="boxnav">
+                        <div class="boxnav" style="height: 706px" id="echart2"></div>
                     </div>
                 </div>
             </li>
-            <li style="width: 50%">
+            <li style="width: 40%">
                 <div class="box">
-                    <div class="boxnav mapc" style="height: 550px; position: relative">
+                    <div class="boxnav mapc" style="height: 650px; position: relative">
                     <div class="map" id="map"></div></div>
                 </div>
                 <div class="box">
-                    <div class="tit">每日销售数据</div>
-                    <div class="boxnav" style="height: 250px;"  id="echart3"></div>
+                    <div class="tit">每年新增会员数</div>
+                    <div class="boxnav" style="height: 450px;" id="echart3"></div>
                 </div>
             </li>
-            <li style="width: 25%">
+            <li style="width: 30%">
                 <div class="box">
-                    <div class="tit">模块标题</div>
-                    <div class="boxnav" style="height: 200px;" id="echart4"></div>
+                    <div class="tit">会员城市分布</div>
+                    <div class="boxnav" style="height: 300px;" id="echart4"></div>
                 </div>
                 <div class="box">
-                    <div class="tit">模块标题</div>
-                    <div class="boxnav" style="height: 250px;" id="echart5" ></div>
+                    <div class="tit">会员性别分布</div>
+                    <div class="boxnav" style="height: 350px;" id="echart5" ></div>
                 </div>
                 <div class="box">
-                    <div class="tit">模块标题</div>
-                    <div class="boxnav" style="height: 250px;" id="echart6"></div>
+                    <div class="tit">会员等级分布</div>
+                    <div class="boxnav" style="height: 350px;" id="echart6"></div>
                 </div>
             </li>
         </ul>
     </div>
+
+
     <script>
     var t = null;
     t = setTimeout(time,1000);//開始运行
