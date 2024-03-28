@@ -2,21 +2,22 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>index</title>
+<title>今日日报数据大屏展示</title>
 <script type="text/javascript" src="../static/js/jquery.js"></script>
 <script type="text/javascript" src="../static/js/echarts.min.js"></script>
 <script type="text/javascript" src="../static/js/china.js"></script>
 <script type="text/javascript" src="../static/js/map.js"></script>
-<script type="text/javascript" src="../static/js/js.js"></script>
-<link rel="stylesheet" href="../static/css/style.css">
+<script type="text/javascript" src="../static/js/js-day.js"></script>
+<link rel="stylesheet" href="../static/css/style-day.css">
 </head>
 <body>
+
 	<div class="head clearfix">
-	<h1 class="pulll_left">公司会员数据大屏展示</h1>
+	<h1 class="pulll_left">今日日报数据大屏展示</h1>
 		<div class="menu menu2 pulll_left">
             <ul>
-                <li><a href="/month_pv">本月PV变化情况</a></li>
-                <li><a href="/month_uv">本月UV变化情况</a></li>
+                <li><a href="/">今日日报</a></li>
+                <li><a href="/month_flow">本月流量分析</a></li>
                 <li><a href="#">导航标题</a></li>
                 <li><a href="#">导航标题</a></li>
                 <li><a href="#">导航标题</a></li>
@@ -25,92 +26,219 @@
 		</div>
 		<div class="time" id="showTime">2023/10/20 17:00:12</div>
 	</div>
+
 	<div class="mainbox">
         <ul class="clearfix nav1">
-            <li style="width: 30%">
+            <li style="width: 20%">
                 <div class="box">
-                    <div class="tit">总体数据</div>
-                    <div class="boxnav" style="height: 330px;">
+                    <div class="tit">用户数据</div>
+                    <div class="boxnav" style="height: 150px;">
                         <div class="yqlist">
                             <ul class="clearfix">
                                 <li>
-                                    <div class="yq" id="yq">2634</div>
-                                    <span>本月销售总额</span>
+                                    <div class="yq" id="yq">{{ user_member.member_sum }}</div>
+                                    <span>会员浏览数</span>
                                 </li>
                                 <li>
-                                    <div class="yq">567</div>
-                                    <span>本月PV</span>
+                                    <div class="yq">{{ user_member.member_rate }}</div>
+                                    <span>会员占比</span>
                                 </li>
                                 <li>
-                                    <div class="yq">56345</div>
-                                    <span>会员总数</span>
+                                    <div class="yq">{{ user_member.user_buy_sum }}</div>
+                                    <span>下单总数</span>
                                 </li>
                                 <li>
-                                    <div class="yq">721</div>
-                                    <span>本月销量</span>
-                                </li>
-                                <li>
-                                    <div class="yq">721</div>
-                                    <span>本月UV</span>
-                                </li>
-                                <li>
-                                    <div class="yq">721</div>
-                                    <span>新增会员数</span>
+                                    <div class="yq">{{ user_member.member_buy_rate }}</div>
+                                    <span>会员下单占比</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="box">
+                    <div class="tit">会员性别分布</div>
+                    <div class="boxnav" style="height: 350px;" id="echartl2"></div>
+                </div>
+                <div class="box">
                     <div class="tit">会员年龄分布</div>
+                    <div class="boxnav" style="height: 400px;" id="echartl3" ></div>
+                </div>
+                <div class="box">
+                    <div class="tit">会员等级分布</div>
+                    <div class="boxnav" style="height: 400px;" id="echartl4"></div>
+                </div>
+            </li>
+            <li style="width: 30%">
+                <div class="box">
+                    <div class="tit">流量数据</div>
+                    <div class="boxnav" style="height: 300px;">
+                        <div class="yqlist">
+                            <ul class="clearfix">
+                                <li>
+                                    <div class="yq" id="yq">{{ data_flow.pv }}</div>
+                                    <span>今日PV</span>
+                                </li>
+                                <li>
+                                    <div class="yq">{{ data_flow.pv_YOY }}%</div>
+                                    <span>同比增长率</span>
+                                </li>
+                                <li>
+                                    <div class="yq">{{ data_flow.pv_QOQ }}%</div>
+                                    <span>环比增长率</span>
+                                </li>
+                                <li>
+                                    <div class="yq">5.13min</div>
+                                    <span>平均停留时长</span>
+                                </li>
+                                <li>
+                                    <div class="yq" id="yq">{{ data_flow.uv }}</div>
+                                    <span>今日UV</span>
+                                </li>
+                                <li>
+                                    <div class="yq">{{ data_flow.uv_YOY }}%</div>
+                                    <span>同比增长率</span>
+                                </li>
+                                <li>
+                                    <div class="yq">{{ data_flow.uv_QOQ }}%</div>
+                                    <span>环比增长率</span>
+                                </li>
+                                <li>
+                                    <div class="yq">0.3</div>
+                                    <span>平均访客价值</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="tit">今日PV、UV变化情况</div>
                     <div class="boxnav">
-                        <div class="boxnav" style="height: 706px" id="echart2"></div>
+                        <div class="boxnav" style="height: 340px" id="echartlc2"></div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="tit">今日用户行为路径变化情况</div>
+                    <div class="boxnav">
+                        <div class="boxnav" style="height: 300px" id="echartlc3"></div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="tit">今日用户浏览时间情况</div>
+                    <div class="boxnav">
+                        <div class="boxnav" style="height: 300px" id="echartlc4"></div>
                     </div>
                 </div>
             </li>
-            <li style="width: 40%">
+            <li style="width: 30%">
+                <div class="box">
+                    <div class="tit">销售数据</div>
+                    <div class="boxnav" style="height: 300px;">
+                        <div class="yqlist">
+                            <ul class="clearfix">
+                                <li>
+                                    <div class="yq" id="yq">2634</div>
+                                    <span>今日销售额</span>
+                                </li>
+                                <li>
+                                    <div class="yq">567</div>
+                                    <span>今日销量</span>
+                                </li>
+                                <li>
+                                    <div class="yq">56345</div>
+                                    <span>人均下单量</span>
+                                </li>
+                                <li>
+                                    <div class="yq">56345</div>
+                                    <span>退款占比</span>
+                                </li>
+                                <li>
+                                    <div class="yq">721</div>
+                                    <span>目标销售额完成率</span>
+                                </li>
+                                <li>
+                                    <div class="yq">721</div>
+                                    <span>目标销售量完成率</span>
+                                </li>
+                                <li>
+                                    <div class="yq">721</div>
+                                    <span>客单价</span>
+                                </li>
+                                <li>
+                                    <div class="yq">721</div>
+                                    <span>差评率</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="box">
                     <div class="boxnav mapc" style="height: 650px; position: relative">
                     <div class="map" id="map"></div></div>
                 </div>
                 <div class="box">
-                    <div class="tit">每年新增会员数</div>
-                    <div class="boxnav" style="height: 450px;" id="echart3"></div>
+                    <div class="tit">今日销售额、销量变化情况</div>
+                    <div class="boxnav" style="height: 450px;" id="echartcr3"></div>
                 </div>
             </li>
-            <li style="width: 30%">
+            <li style="width: 20%">
                 <div class="box">
-                    <div class="tit">会员城市分布</div>
-                    <div class="boxnav" style="height: 300px;" id="echart4"></div>
+                    <div class="tit">商品数据</div>
+                    <div class="boxnav" style="height: 150px;">
+                        <div class="yqlist">
+                            <ul class="clearfix">
+                                <li>
+                                    <div class="yq" id="yq">{{ data_shop.cate }}</div>
+                                    <span>今日品类top1</span>
+                                </li>
+                                <li>
+                                    <div class="yq">{{ data_shop.shop }}</div>
+                                    <span>今日店铺top1</span>
+                                </li>
+                                <li>
+                                    <div class="yq">{{ data_shop.sku }}</div>
+                                    <span>今日单品top1</span>
+                                </li>
+                                <li>
+                                    <div class="yq">721</div>
+                                    <span>今日品牌top1</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="box">
-                    <div class="tit">会员性别分布</div>
-                    <div class="boxnav" style="height: 350px;" id="echart5" ></div>
+                    <div class="tit">今日浏览量、购买量排名前十的品类</div>
+                    <div class="boxnav" style="height: 604px;" id="echartr2"></div>
                 </div>
                 <div class="box">
-                    <div class="tit">会员等级分布</div>
-                    <div class="boxnav" style="height: 350px;" id="echart6"></div>
+                    <div class="tit">今日浏览量、购买量排名前十的店铺</div>
+                    <div class="boxnav" style="height: 604px;" id="echartr3" ></div>
                 </div>
             </li>
         </ul>
     </div>
 
-
     <script>
-    var t = null;
-    t = setTimeout(time,1000);//開始运行
-    function time() {
-       clearTimeout(t);//清除定时器
-       dt = new Date();
-       var y=dt.getFullYear();
-       var mt=dt.getMonth()+1;
-       var day=dt.getDate();
-       var h=dt.getHours();//获取时
-       var m=dt.getMinutes();//获取分
-       var s=dt.getSeconds();//获取秒
-       document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
-       t = setTimeout(time,1000); //设定定时器，循环运行
-    }
+        var t = null;
+        t = setTimeout(time,1000);//開始运行
+        function time() {
+            clearTimeout(t);//清除定时器
+            dt = new Date();
+            var y=dt.getFullYear();
+            var mt=dt.getMonth()+1;
+            var day=dt.getDate();
+            var h=dt.getHours();//获取时
+            var m=dt.getMinutes();//获取分
+            var s=dt.getSeconds();//获取秒
+            var t = null;
+            document.getElementById("showTime").innerHTML = y+"/"+Appendzero(mt)+"/"+Appendzero(day)+" "+Appendzero(h)+":"+Appendzero(m)+":"+Appendzero(s)+"";
+            function Appendzero(obj){
+                if(obj<10) return "0" +""+ obj;
+                else return obj;
+            }
+            t = setTimeout(time,1000); //设定定时器，循环运行
+        }
     </script>
+
 </body>
 </html>

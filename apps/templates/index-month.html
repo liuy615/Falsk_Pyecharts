@@ -1,0 +1,123 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>大数据可视化-本月流量分析</title>
+<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript" src="../static/js/echarts.min.js"></script>
+<script language="JavaScript" src="../static/js/js-month-flow.js"></script>
+<link rel="stylesheet" href="../static/css/comon0.css">
+</head>
+<body>
+    <div class="loading">
+        <div class="loadbox"> <img src="../static/images/loading.gif"> 页面加载中... </div>
+    </div>
+
+    <div class="head clearfix">
+        <h1 class="pulll_left">本月流量分析数据大屏展示</h1>
+        <div class="menu menu2 pulll_left">
+            <ul>
+                <li><a href="/">今日日报</a></li>
+                <li><a href="/month_flow">本月流量分析</a></li>
+                <li><a href="#">导航标题</a></li>
+                <li><a href="#">导航标题</a></li>
+                <li><a href="#">导航标题</a></li>
+                <li><a href="#">导航标题</a></li>
+            </ul>
+        </div>
+        <div class="time" id="showTime">2023/10/20 17:00:12</div>
+    </div>
+
+    <div class="mainbox">
+        <ul class="clearfix">
+            <li>
+                <div class="boxall" style="height: calc(33.333% - .15rem)">
+                    <div class="alltitle">左边第一图</div>
+                    <div class=" boxnav " id="echarts-l1" style="height:calc(100% - .3rem);"></div>
+                </div>
+                <div class="boxall" style="height: calc(33.333% - .15rem)">
+                    <div class="alltitle">左边第二图</div>
+                    <div class="boxnav" id="echarts-l2" style="height:calc(100% - .3rem);"></div>
+                </div>
+                <div class="boxall" style="height: calc(33.333% - .15rem)">
+                    <div class="alltitle">左边第三图</div>
+                    <div class="boxnav" id="echarts-l3" style="height:calc(100% - .3rem);"></div>
+                </div>
+            </li>
+            <li>
+            <div class="boxall" style="height: calc(20% - .15rem)">
+                <ul class="row h100 clearfix">
+                    <li class="col-6">
+                        <div class="sqzs h100">
+                            <p>业绩总览</p>
+                            <h1><span>30500</span>万</h1>
+                        </div>
+                    </li>
+                    <li class="col-6">
+                        <ul class="row h100 clearfix">
+                            <li class="col-4">
+                                <div class="tit01">标题名称</div>
+                                <div class="piebox" id="pe01"></div>
+                            </li>
+                            <li class="col-4">
+                                <div class="tit01">标题名称</div>
+                                <div class="piebox" id="pe02"></div>
+                            </li>
+                            <li class="col-4">
+                                <div class="tit01">标题名称</div>
+                                <div class="piebox" id="pe03"></div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                </div>
+                <div class="boxall" style="height: calc(38% - .15rem)">
+                    <div class="alltitle">中间第一图</div>
+                    <div class="boxnav" id="echarts-c1" style="height:calc(100% - .3rem);"></div>
+                </div>
+                <div class="boxall" style="height: calc(42% - .15rem)">
+                    <div class="alltitle">中间第二图</div>
+                    <div class="boxnav" id="echarts-c2" style="height:calc(100% - .3rem);"></div>
+                </div>
+            </li>
+            <li>
+                <div class="boxall" style="height: calc(33.333% - .15rem)">
+                    <div class="alltitle">右边第一图</div>
+                    <div class="boxnav" id="echarts-r1" style="height:calc(100% - .3rem);"></div>
+                </div>
+                <div class="boxall" style="height: calc(33.333% - .15rem)">
+                    <div class="alltitle">右边第二图</div>
+                    <div class="boxnav" id="echarts-r2" style="height:calc(100% - .3rem);"></div>
+                </div>
+                <div class="boxall" style="height: calc(33.333% - .15rem)">
+                    <div class="alltitle">右边第三图</div>
+                    <div class="boxnav" id="echarts-r3" style="height:calc(100% - .3rem);"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var t = null;
+        t = setTimeout(time,1000);//開始运行
+        function time() {
+            clearTimeout(t);//清除定时器
+            dt = new Date();
+            var y=dt.getFullYear();
+            var mt=dt.getMonth()+1;
+            var day=dt.getDate();
+            var h=dt.getHours();//获取时
+            var m=dt.getMinutes();//获取分
+            var s=dt.getSeconds();//获取秒
+            var t = null;
+            document.getElementById("showTime").innerHTML = y+"/"+Appendzero(mt)+"/"+Appendzero(day)+" "+Appendzero(h)+":"+Appendzero(m)+":"+Appendzero(s)+"";
+            function Appendzero(obj){
+                if(obj<10) return "0" +""+ obj;
+                else return obj;
+            }
+            t = setTimeout(time,1000); //设定定时器，循环运行
+        }
+    </script>
+
+</body>
+</html>

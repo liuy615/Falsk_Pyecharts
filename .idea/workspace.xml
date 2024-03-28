@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="df746ae9-72b6-4941-a2b7-c0207a8a90b0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/static/js/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/static/js/js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/3月数据/user_portrait_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/js/js.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_pv.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_pv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_uv.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/3月可视化/2018_3_uv.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/views/data_clean.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views/data_clean.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/views/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views/tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/views/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views/view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +42,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="2RgISaIiylBZUEDxSbOpOrnAR6h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -52,11 +64,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../python-demo" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pycharm2019\Flask-pyecharts\apps\static\js" />
       <recent name="D:\pycharm2019\Flask-pyecharts\apps\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -66,7 +79,7 @@
       <recent name="D:\pycharm2019\Flask-pyecharts\apps" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.manage">
+  <component name="RunManager" selected="Python.data_clean">
     <configuration name="data_clean" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Flask-pyecharts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -194,10 +207,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.manage" />
         <item itemvalue="Python.data_clean" />
-        <item itemvalue="Python.draw" />
+        <item itemvalue="Python.manage" />
         <item itemvalue="Python.tools" />
+        <item itemvalue="Python.draw" />
         <item itemvalue="Python.view" />
       </list>
     </recent_temporary>
@@ -243,6 +256,20 @@
       <workItem from="1707104083466" duration="1048000" />
       <workItem from="1707111679207" duration="14037000" />
       <workItem from="1707276666058" duration="6701000" />
+      <workItem from="1708223271687" duration="12103000" />
+      <workItem from="1708307762404" duration="91857000" />
+      <workItem from="1709101857880" duration="8597000" />
+      <workItem from="1709112376583" duration="47143000" />
+      <workItem from="1709540287117" duration="9410000" />
+      <workItem from="1709619885994" duration="52295000" />
+      <workItem from="1709879946126" duration="13282000" />
+      <workItem from="1710382863315" duration="18360000" />
+      <workItem from="1710468455397" duration="35601000" />
+      <workItem from="1710756151678" duration="1033000" />
+      <workItem from="1710813668401" duration="10491000" />
+      <workItem from="1710831931356" duration="44930000" />
+      <workItem from="1711447401859" duration="743000" />
+      <workItem from="1711519894459" duration="27000" />
     </task>
     <servers />
   </component>
@@ -250,11 +277,11 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Flask_pyecharts$data_clean.coverage" NAME="data_clean Coverage Results" MODIFIED="1703225756620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
+    <SUITE FILE_PATH="coverage/Flask_pyecharts$data_clean.coverage" NAME="data_clean Coverage Results" MODIFIED="1711359418382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
     <SUITE FILE_PATH="coverage/Flask_pyecharts$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1687674046528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Flask_pyecharts$manage.coverage" NAME="manage Coverage Results" MODIFIED="1707288496974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Flask_pyecharts$manage.coverage" NAME="manage Coverage Results" MODIFIED="1709715605163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Flask_pyecharts$draw.coverage" NAME="draw Coverage Results" MODIFIED="1697614737668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
-    <SUITE FILE_PATH="coverage/Flask_pyecharts$tools.coverage" NAME="tools Coverage Results" MODIFIED="1687921620951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
+    <SUITE FILE_PATH="coverage/Flask_pyecharts$tools.coverage" NAME="tools Coverage Results" MODIFIED="1709545420163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
     <SUITE FILE_PATH="coverage/Flask_pyecharts$view.coverage" NAME="view Coverage Results" MODIFIED="1687680759508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/views" />
   </component>
 </project>
